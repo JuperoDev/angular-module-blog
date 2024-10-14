@@ -9,11 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 // components 
 
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
+import { BlogEntryComponent } from './blog-entries/blog-entry/blog-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogEntriesComponent
+    BlogEntriesComponent,
+    BlogEntryComponent
   ],
   imports: [
     HttpClientModule ,

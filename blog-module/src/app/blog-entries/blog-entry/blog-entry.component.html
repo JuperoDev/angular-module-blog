@@ -1,0 +1,8 @@
+<div class="blog-entry">
+    <h3>{{ article.fields.title.stringValue }}</h3>
+    <p><strong>Author:</strong> {{ article.fields.author.stringValue }}</p>
+    <p><strong>Category:</strong> {{ article.fields.category.stringValue }}</p>
+    <p><strong>Date:</strong> {{ article.fields.date.timestampValue | date }}</p>
+    <p>{{ article.fields.content.stringValue }}</p>
+  </div>
+  
