@@ -1,8 +1,11 @@
-<div class="blog-entry" (click)="viewDetails()">
-    <h3>{{ article.fields.title.stringValue }}</h3>
+<div *ngIf="article">
+    <h1>{{ article.fields.title.stringValue }}</h1>
     <p><strong>Author:</strong> {{ article.fields.author.stringValue }}</p>
     <p><strong>Category:</strong> {{ article.fields.category.stringValue }}</p>
     <p><strong>Date:</strong> {{ article.fields.date.timestampValue | date }}</p>
-    <p>{{ article.fields.content.stringValue | slice: 0:20 }}...</p> <!-- short text -->
+    <p>{{ article.fields.content.stringValue }}</p>
+
+    <button (click)="goBack()">Back to Home</button>
+    
   </div>
   

@@ -8,13 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BlogEntriesComponent implements OnInit {
   articles: any[] = []; 
-   // Variable to store the fetched articles
+   //fetched articles storage
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.fetchArticles();  
-    // Fetch articles on component initialization
+    // Fetch articles OnMount
   }
 
   fetchArticles(): void {
