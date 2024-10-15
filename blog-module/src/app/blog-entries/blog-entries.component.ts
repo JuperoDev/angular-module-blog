@@ -24,7 +24,7 @@ export class BlogEntriesComponent implements OnInit {
         this.articles = response.documents;  
       },
       error: (err) => {
-        console.error('Error fetching articles:', err);
+        console.error('Error: ', err);
       }
     });
   }

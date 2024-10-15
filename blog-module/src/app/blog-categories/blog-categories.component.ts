@@ -25,7 +25,7 @@ export class BlogCategoriesComponent implements OnInit {
         this.groupByCategory();  
       },
       error: (err) => {
-        console.error('Error fetching articles:', err);
+        console.error('Error: ', err);
       }
     });
   }
