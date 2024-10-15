@@ -1,0 +1,8 @@
+<h2>Blog Categories</h2>
+
+
+<ul>
+  <li *ngFor="let category of groupedCategories | keyvalue">
+    {{ category.key }} ({{ category.value }}) 
+  </li>
+</ul>

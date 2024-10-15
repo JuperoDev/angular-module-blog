@@ -3,6 +3,6 @@
     <p><strong>Author:</strong> {{ article.fields.author.stringValue }}</p>
     <p><strong>Category:</strong> {{ article.fields.category.stringValue }}</p>
     <p><strong>Date:</strong> {{ article.fields.date.timestampValue | date }}</p>
-    <p>{{ article.fields.content.stringValue | slice: 0:20 }}...</p> <!-- short text -->
+    <p>{{ article.fields.content.stringValue | slice: 0:20 }}...</p> <!-- short text, ajustar longitud a cortar -->
   </div>
   
