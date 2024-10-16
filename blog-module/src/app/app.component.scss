@@ -1,0 +1,21 @@
+@import 'styles.scss';
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-unit;
+  
+    .nav-column {
+      width: 250px;
+      
+    }
+  
+    .content-column {
+      flex-grow: 1;
+      margin-left: $spacing-unit;
+      padding: $spacing-unit;
+     
+    }
+  }
+  
