@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+// styles.scss
+
+@import './app/styles/mixings';
+
+
+
+$primary-color: #197abb;
+$secondary-color: #3498db;
+$text-color: #ececec;
+$hover-color: darken($primary-color, 10%);
+$border-radius: 20px;
+$max-width: 200px;
+$spacing-unit: 10px;

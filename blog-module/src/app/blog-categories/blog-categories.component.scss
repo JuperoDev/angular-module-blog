@@ -1,0 +1,36 @@
+@import 'styles.scss';
+
+.categories__chip--wrap {
+    margin-bottom: $spacing-unit;
+    text-transform: capitalize;
+
+    // nested item
+    .categories__chip--element {
+        background-color: $primary-color;
+        color: $text-color;
+        border-radius: $border-radius;
+        padding: $spacing-unit;
+        margin-top: $spacing-unit;
+        text-align: center;
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 200px;
+
+        @include center-flex;
+
+        &:hover {
+            background-color: $hover-color;
+            @include transition(background-color);
+        }
+
+        a {
+            color: $text-color;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

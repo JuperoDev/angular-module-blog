@@ -1,7 +1,11 @@
 <h2>Blog Categories</h2>
 
-<ul>
-  <li *ngFor="let category of groupedCategories | keyvalue">
+<div class="categories__chip--wrap">
+  <div class="categories__chip--element">
+    <a [routerLink]="['/']"> All posts </a>
+  </div>
+  
+  <div *ngFor="let category of groupedCategories | keyvalue" class="categories__chip--element">
     <a [routerLink]="['/category', category.key]">{{ category.key }} ({{ category.value }})</a>
-  </li>
-</ul>
+  </div>
+</div>
