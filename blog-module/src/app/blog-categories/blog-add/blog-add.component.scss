@@ -1,13 +1,13 @@
 @import 'styles.scss';
 
-.categories__chip--wrap {
+.blog-add__chip--wrap {
     margin-bottom: $spacing-unit;
     text-transform: capitalize;
 
    
     // nested item
-    .categories__chip--element {
-        background-color: $primary-color;
+    .blog-add__chip--element {
+        background-color: #333333;
         color: $text-color;
         border-radius: $border-radius;
         padding: $spacing-unit;
@@ -21,8 +21,7 @@
         @include center-flex;
 
         &:hover {
-            background-color: $hover-color;
-            @include transition(background-color);
+            background-color: black;
         }
 
         a {
