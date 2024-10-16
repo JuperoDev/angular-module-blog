@@ -1,0 +1,24 @@
+@import 'styles.scss';
+
+.blog-entries {
+    &__title {
+      font-size: 2rem;
+      margin-bottom: $spacing-unit;
+      color: $primary-color;
+    }
+  
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-unit;
+      justify-content: space-between;
+    }
+  
+    &__item {
+      flex: 1 1 calc(33.333% - $spacing-unit);
+      max-width: calc(33.333% - $spacing-unit);
+      box-sizing: border-box;
+      margin-bottom: $spacing-unit;
+    }
+  }
+  

@@ -1,4 +1,6 @@
-<h2>Articles</h2>
-<div *ngFor="let article of articles">
-  <app-blog-entry [article]="article"></app-blog-entry>  
+<h2 class="blog-entries__title">Articles</h2>
+<div class="blog-entries__list">
+  <div *ngFor="let article of articles" class="blog-entries__item">
+    <app-blog-entry [article]="article"></app-blog-entry>  
+  </div>
 </div>
