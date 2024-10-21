@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: ':id', component: BlogDetailComponent },                          // Detailed blog post view
   { path: 'category/:category', component: BlogCategoryResultComponent },  // Category-specific page
   { path: 'addPost', component: BlogAddPostComponent },  // add post
-  { path: 'cosa', component: CosaComponent }
+  { path: 'posting/cosa', component: CosaComponent }
 ];
 
 @NgModule({
