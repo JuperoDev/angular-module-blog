@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';  
+import { FormsModule } from '@angular/forms'; 
 
 
 // Components
@@ -31,7 +32,8 @@ import { CosaComponent } from './cosa/cosa.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule  
+    AppRoutingModule  ,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
