@@ -12,6 +12,8 @@ import { BlogDetailComponent } from './blog-entries/blog-detail/blog-detail.comp
 import { BlogCategoriesComponent } from './blog-categories/blog-categories.component';
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';
 import { BlogAddComponent } from './blog-categories/blog-add/blog-add.component';
+import { BlogAddPostComponent } from './blog-categories/blog-add/blog-add-post/blog-add-post.component';
+import { WtfComponent } from './wtf/wtf.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { BlogAddComponent } from './blog-categories/blog-add/blog-add.component'
     BlogDetailComponent,
     BlogCategoriesComponent,
     BlogCategoryResultComponent,
-    BlogAddComponent
+    BlogAddComponent,
+    BlogAddPostComponent,
+    WtfComponent
   ],
   imports: [
     BrowserModule,
