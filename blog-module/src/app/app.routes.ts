@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: BlogEntriesComponent },                             // Main page with all blog entries
   { path: ':id', component: BlogDetailComponent },                          // Detailed blog post view
   { path: 'category/:category', component: BlogCategoryResultComponent },  // Category-specific page
-  { path: 'addPost', component: BlogAddPostComponent },  // add post
+  { path: 'add/post', component: BlogAddPostComponent },  // add post
   { path: 'posting/cosa', component: CosaComponent }
 ];
 
