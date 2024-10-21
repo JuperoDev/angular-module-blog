@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';  // Import the Router service
 
 @Component({
   selector: 'app-blog-add-post',
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./blog-add-post.component.scss']
 })
 export class BlogAddPostComponent {
-  
+
   post = {
     title: '',
     author: '',
@@ -17,7 +18,7 @@ export class BlogAddPostComponent {
     image: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}  // Inject Router ver mejor
 
   submitPost() {
     const url = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
@@ -28,8 +29,8 @@ export class BlogAddPostComponent {
         author: { stringValue: this.post.author },
         category: { stringValue: this.post.category },
         content: { stringValue: this.post.content },
-        date: { timestampValue: new Date(this.post.date).toISOString() },  // Converting to ISO format
-        image: { stringValue: this.post.image || '' }  // Optional image field
+        date: { timestampValue: new Date(this.post.date).toISOString() },
+        image: { stringValue: this.post.image || '' }
       }
     };
 
@@ -37,6 +38,7 @@ export class BlogAddPostComponent {
       next: (response) => {
         console.log('Post added successfully!', response);
         this.resetForm();
+        this.goToHomePage();  
       },
       error: (error) => {
         console.error('Error adding post:', error);
@@ -53,5 +55,12 @@ export class BlogAddPostComponent {
       date: new Date().toISOString(),
       image: ''
     };
+  }
+
+  goToHomePage() {
+    // Navigate  and force frfreh
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 }
