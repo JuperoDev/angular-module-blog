@@ -13,7 +13,7 @@ import { BlogCategoriesComponent } from './blog-categories/blog-categories.compo
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';
 import { BlogAddComponent } from './blog-categories/blog-add/blog-add.component';
 import { BlogAddPostComponent } from './blog-categories/blog-add/blog-add-post/blog-add-post.component';
-import { WtfComponent } from './wtf/wtf.component';
+import { CosaComponent } from './cosa/cosa.component';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { WtfComponent } from './wtf/wtf.component';
     BlogCategoryResultComponent,
     BlogAddComponent,
     BlogAddPostComponent,
-    WtfComponent
+    CosaComponent
   ],
   imports: [
     BrowserModule,
