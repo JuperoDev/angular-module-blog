@@ -1,12 +1,11 @@
 @import 'styles.scss';
 
-.blog-add__chip--wrap {
+.blog-add-button__chip--wrap {
     margin-bottom: $spacing-unit;
     text-transform: capitalize;
 
    
-    // nested item
-    .blog-add__chip--element {
+    .blog-add-button__chip--element {
         background-color: #5c5c5c;
         color: $text-color;
         border-radius: $border-radius;

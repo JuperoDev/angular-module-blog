@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-blog-detail',
-  templateUrl: './blog-detail.component.html',
-  styleUrls: ['./blog-detail.component.scss']
+  templateUrl: './blog-post.component.html',
+  styleUrls: ['./blog-post.component.scss']
 })
-export class BlogDetailComponent implements OnInit {
+export class BlogPostComponent implements OnInit {
   articleId: string = '';
   article: any;
 

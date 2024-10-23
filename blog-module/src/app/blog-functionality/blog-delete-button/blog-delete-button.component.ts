@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-delete-button',
-  templateUrl: './delete-button.component.html', // External HTML file
-  styleUrls: ['./delete-button.component.scss']
+  selector: 'app-blog-delete-button',
+  templateUrl: './blog-delete-button.component.html', 
+  styleUrls: ['./blog-delete-button.component.scss']
 })
-export class DeleteButtonComponent {
+export class BlogDeleteButtonComponent {
   @Input() postId: string | undefined;
 
   private readonly baseUrl = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
