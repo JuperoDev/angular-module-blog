@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
 import { BlogEntryComponent } from './blog-entries/blog-entry/blog-entry.component';
 
-import { BlogCategoriesComponent } from './blog-categories/blog-categories.component';
+
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';
 import { CosaComponent } from './cosa/cosa.component';
 
@@ -20,7 +20,10 @@ import { CosaComponent } from './cosa/cosa.component';
 import { BlogAddButtonComponent } from './blog-functionality/blog-add-button/blog-add-button.component';
 import { BlogDeleteButtonComponent } from './blog-functionality/blog-delete-button/blog-delete-button.component';
 import { BlogAddPostComponent } from './blog-functionality/blog-add-post/blog-add-post.component';
+
 import { BlogPostComponent } from './blog-post/blog-post.component';
+
+import { BlogCategoriesComponent } from './blog-navigation/blog-category-navigator/blog-categories.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     BlogEntriesComponent,
     BlogEntryComponent,
 
-    BlogCategoriesComponent,
+
     BlogCategoryResultComponent,
     BlogAddPostComponent,
     CosaComponent,
@@ -37,6 +40,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     BlogAddButtonComponent,
     BlogDeleteButtonComponent,
     BlogPostComponent,
+    BlogCategoriesComponent,
   ],
   imports: [
     BrowserModule,
