@@ -13,7 +13,6 @@ import { BlogEntryComponent } from './blog-entries/blog-entry/blog-entry.compone
 import { BlogCategoriesComponent } from './blog-categories/blog-categories.component';
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';
 import { CosaComponent } from './cosa/cosa.component';
-import { DeleteButtonComponent } from './blog-entries/blog-detail/delete-button/delete-button.component';
 
 //refactor components
 
@@ -33,7 +32,6 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     BlogCategoryResultComponent,
     BlogAddPostComponent,
     CosaComponent,
-    DeleteButtonComponent,
 
     // refactor 
     BlogAddButtonComponent,
