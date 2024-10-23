@@ -1,0 +1,69 @@
+.post {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin: 10px;
+    border: 1px solid #4f89b2;
+    border-radius: 20px;
+    max-width: 800px;
+    background-color: #fff;
+    color: #3e404b;
+    transition: background-color 0.3s ease;
+  
+   
+  
+    &__header {
+      margin-bottom: 15px;
+    }
+  
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #292a2a;
+      text-transform: capitalize;
+    }
+  
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  
+    &__author,
+    &__category,
+    &__date {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  
+    &__author-label,
+    &__category-label,
+    &__date-label {
+      font-weight: bold;
+      color: #404040; 
+    }
+  
+    &__content {
+      font-size: 1.125rem;
+      margin-top: 10px;
+      line-height: 1.5;
+      color: #292a2a; 
+    }
+  
+    &__back-button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #292a2a;
+      border: none;
+      border-radius: 20px;
+      color: #ececec;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #1c1d1d; 
+      }
+    }
+  }
+  
