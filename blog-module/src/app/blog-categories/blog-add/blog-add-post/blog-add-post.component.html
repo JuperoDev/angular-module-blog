@@ -25,10 +25,10 @@
     <input id="date" type="datetime-local" [(ngModel)]="post.date" name="date" required>
   </div>
 
-  <div>
+  <!-- <div>
     <label for="image">Image URL</label>
     <input id="image" [(ngModel)]="post.image" name="image">
-  </div>
+  </div> -->
 
   <button type="submit" [disabled]="postForm.invalid">Submit Post</button>
 </form>
