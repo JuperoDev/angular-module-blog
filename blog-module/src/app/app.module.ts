@@ -15,6 +15,7 @@ import { BlogCategoryResultComponent } from './blog-category-result/blog-categor
 import { BlogAddComponent } from './blog-categories/blog-add/blog-add.component';
 import { BlogAddPostComponent } from './blog-categories/blog-add/blog-add-post/blog-add-post.component';
 import { CosaComponent } from './cosa/cosa.component';
+import { DeleteButtonComponent } from './blog-entries/blog-detail/delete-button/delete-button.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CosaComponent } from './cosa/cosa.component';
     BlogCategoryResultComponent,
     BlogAddComponent,
     BlogAddPostComponent,
-    CosaComponent
+    CosaComponent,
+    DeleteButtonComponent
   ],
   imports: [
     BrowserModule,

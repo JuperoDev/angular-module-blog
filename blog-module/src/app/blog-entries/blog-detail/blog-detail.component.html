@@ -1,4 +1,5 @@
 <div class="post" *ngIf="article">
+  <!-- post -->
   <div class="post__header">
     <h1 class="post__title">{{ article.fields.title.stringValue }}</h1>
   </div>
@@ -19,5 +20,10 @@
   <div class="post__content">
     <p>{{ article.fields.content.stringValue }}</p>
   </div>
+  
+  <!-- Delete button component -->
+  <app-delete-button [postId]="article.name.split('/').pop()"></app-delete-button>
+  
+  <!-- Back button -->
   <button class="post__back-button" (click)="goBack()">Back to Home</button>
 </div>

@@ -30,7 +30,7 @@ export class BlogDetailComponent implements OnInit {
     });
   }
 
-  // Go home (maybe user anchor?)
+  // Go home
   goBack(): void {
     this.router.navigate(['']);  // Navigate to root path
   }
