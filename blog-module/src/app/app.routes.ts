@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
 import { BlogDetailComponent } from './blog-entries/blog-detail/blog-detail.component';
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';  
-import { BlogAddPostComponent } from './blog-categories/blog-add/blog-add-post/blog-add-post.component';
+import { BlogAddPostComponent } from './blog-functionality/blog-add-post/blog-add-post.component';
 import { CosaComponent } from './cosa/cosa.component';
 
 const routes: Routes = [
