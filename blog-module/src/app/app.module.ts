@@ -17,6 +17,11 @@ import { BlogAddPostComponent } from './blog-categories/blog-add/blog-add-post/b
 import { CosaComponent } from './cosa/cosa.component';
 import { DeleteButtonComponent } from './blog-entries/blog-detail/delete-button/delete-button.component';
 
+//refactor components
+
+         // blog functionality
+import { BlogAddButtonComponent } from './blog-functionality/blog-add-button/blog-add-button.component';
+import { BlogDeleteButtonComponent } from './blog-functionality/blog-delete-button/blog-delete-button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { DeleteButtonComponent } from './blog-entries/blog-detail/delete-button/
     BlogAddComponent,
     BlogAddPostComponent,
     CosaComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+
+    // refactor 
+    BlogAddButtonComponent,
+    BlogDeleteButtonComponent
   ],
   imports: [
     BrowserModule,

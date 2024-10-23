@@ -22,8 +22,8 @@
     <p>{{ article.fields.content.stringValue }}</p>
   </div>
   
-  <!-- Delete button component -->
-  <app-delete-button [postId]="article.name.split('/').pop()"></app-delete-button>
+  <!-- Delete button-->
+  <app-blog-delete-button [postId]="article.name.split('/').pop()"></app-blog-delete-button>
   
   <!-- Back button -->
   <button class="post__back-button" (click)="goBack()">Back to Home</button>

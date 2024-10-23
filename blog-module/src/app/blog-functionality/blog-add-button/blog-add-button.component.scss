@@ -1,0 +1,36 @@
+@import 'styles.scss';
+
+.blog-add-button__chip--wrap {
+    margin-bottom: $spacing-unit;
+    text-transform: capitalize;
+
+   
+    .blog-add-button__chip--element {
+        background-color: #5c5c5c;
+        color: $text-color;
+        border-radius: $border-radius;
+        padding: $spacing-unit;
+        margin-top: $spacing-unit;
+        text-align: center;
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 200px;
+
+        
+        @include center-flex;
+
+        &:hover {
+            background-color: black;
+        }
+
+        a {
+            color: $text-color;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
