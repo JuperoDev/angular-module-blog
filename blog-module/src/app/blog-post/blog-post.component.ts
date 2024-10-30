@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })
-export class BlogPostComponent implements OnInit {
+export class BlogPostComponent implements OnInit, OnDestroy {
   articleId: string = '';
   article: any;
+  private subscription: Subscription | null = null;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
+  private route = inject(ActivatedRoute);
+  private http = inject(HttpClient);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.articleId = this.route.snapshot.paramMap.get('id')!;
@@ -20,7 +24,7 @@ export class BlogPostComponent implements OnInit {
 
   fetchArticleDetails(id: string): void {
     const url = `https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles/${id}`;
-    this.http.get<any>(url).subscribe({
+    this.subscription = this.http.get<any>(url).subscribe({
       next: (response) => {
         this.article = response;
       },
@@ -30,8 +34,11 @@ export class BlogPostComponent implements OnInit {
     });
   }
 
-  // Go home
   goBack(): void {
-    this.router.navigate(['']);  // Navigate to root path
+    this.router.navigate(['']); // home
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe(); 
   }
 }
