@@ -9,3 +9,19 @@ export interface Article {
     name?: string;
   }
   
+
+  export interface FirestoreDocument {
+    name: string;
+    fields: {
+      author: { stringValue: string };
+      category: { stringValue: string };
+      content: { stringValue: string };
+      date: { timestampValue: any };
+      image: { stringValue: string };
+      title: { stringValue: string };
+    };
+  }
+  
+  export interface FirestoreResponse {
+    documents: FirestoreDocument[];
+  }
