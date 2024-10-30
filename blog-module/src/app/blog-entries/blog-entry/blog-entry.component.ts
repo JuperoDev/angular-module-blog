@@ -1,19 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-entry',
   templateUrl: './blog-entry.component.html',
   styleUrls: ['./blog-entry.component.scss']
 })
-export class BlogEntryComponent {
-  @Input() article: any;  
+export class BlogEntryComponent implements OnDestroy {
+  @Input() article: any;
 
-  constructor(private router: Router) {}
+  private router = inject(Router);
+  private subscription: Subscription | null = null; 
 
-  // Navigate to ID
   viewDetails(): void {
-    const articleId = this.article.name.split('/').pop();  // get ID
-    this.router.navigate([articleId]);  
+    const articleId = this.article.name.split('/').pop(); 
+    this.router.navigate([articleId]);
+  }
+
+  ngOnDestroy(): void {
+   
+    this.subscription?.unsubscribe();
   }
 }
