@@ -2,28 +2,28 @@
   <!-- post -->
 
   <div class="post__header">
-    <h1 class="post__title">{{ article.fields.title.stringValue }}</h1>
+    <h1 class="post__title">{{ article.title }}</h1>
   </div>
   <div class="post__meta">
     <p class="post__author">
       <strong class="post__author-label">Author:</strong> 
-      {{ article.fields.author.stringValue }}
+      {{ article.author }}
     </p>
     <p class="post__category">
       <strong class="post__category-label">Category:</strong> 
-      {{ article.fields.category.stringValue }}
+      {{ article.category }}
     </p>
     <p class="post__date">
       <strong class="post__date-label">Date:</strong> 
-      {{ article.fields.date.timestampValue | date }}
+      {{ article.date | date }}
     </p>
   </div>
   <div class="post__content">
-    <p>{{ article.fields.content.stringValue }}</p>
+    <p>{{ article.content }}</p>
   </div>
   
-  <!-- Delete button-->
-  <app-blog-delete-button [postId]="article.name.split('/').pop()"></app-blog-delete-button>
+  <!-- Delete button -->
+  <app-blog-delete-button [postId]="articleId"></app-blog-delete-button>
   
   <!-- Back button -->
   <button class="post__back-button" (click)="goBack()">Back to Home</button>
