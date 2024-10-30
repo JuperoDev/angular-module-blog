@@ -1,45 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-categories',
   templateUrl: './blog-categories.component.html',
   styleUrls: ['./blog-categories.component.scss']
 })
-export class BlogCategoriesComponent implements OnInit {
-  articles: any[] = [];  
+export class BlogCategoriesComponent implements OnInit, OnDestroy {
+  articles: any[] = [];
   groupedCategories: { [category: string]: number } = {};
+  private subscription: Subscription | null = null;
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   ngOnInit(): void {
     this.fetchArticles();
   }
 
-  // Fetch articles from Firebase
   fetchArticles(): void {
     const url = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
-    this.http.get<{ documents: any[] }>(url).subscribe({
+    this.subscription = this.http.get<{ documents: any[] }>(url).subscribe({
       next: (response) => {
-        this.articles = response.documents;  
-        this.groupByCategory();  
+        this.articles = response.documents;
+        this.groupByCategory();
       },
       error: (err) => {
-        console.error('Error: ', err);
+        console.error('Error fetching articles:', err);
       }
     });
   }
 
-  // Group the articles by category
   groupByCategory(): void {
     this.groupedCategories = this.articles.reduce((acc, article) => {
-      const category = article.fields.category.stringValue;  
+      const category = article.fields.category.stringValue;
       if (!acc[category]) {
-        acc[category] = 0; 
+        acc[category] = 0;
       }
-      acc[category]++;  
+      acc[category]++;
       return acc;
     }, {});
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe(); //
   }
 }

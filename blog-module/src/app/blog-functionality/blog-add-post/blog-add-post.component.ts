@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';  // Import the Router service
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-add-post',
   templateUrl: './blog-add-post.component.html',
   styleUrls: ['./blog-add-post.component.scss']
 })
-export class BlogAddPostComponent {
-
+export class BlogAddPostComponent implements OnDestroy {
   post = {
     title: '',
     author: '',
@@ -18,11 +18,12 @@ export class BlogAddPostComponent {
     image: ''
   };
 
-  constructor(private http: HttpClient, private router: Router) {}  // Inject Router ver mejor
+  private readonly baseUrl = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private subscription: Subscription | null = null;
 
   submitPost() {
-    const url = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
-    
     const body = {
       fields: {
         title: { stringValue: this.post.title },
@@ -34,11 +35,11 @@ export class BlogAddPostComponent {
       }
     };
 
-    this.http.post(url, body).subscribe({
+    this.subscription = this.http.post(this.baseUrl, body).subscribe({
       next: (response) => {
         console.log('Post added successfully!', response);
         this.resetForm();
-        this.goToHomePage();  
+        this.goToHomePage();
       },
       error: (error) => {
         console.error('Error adding post:', error);
@@ -58,9 +59,12 @@ export class BlogAddPostComponent {
   }
 
   goToHomePage() {
-    // Navigate  and force frfreh
     this.router.navigate(['/']).then(() => {
-      window.location.reload();
+      window.location.reload(); 
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe(); 
   }
 }
