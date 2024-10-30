@@ -2,6 +2,7 @@ import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'app-blog-detail',
@@ -10,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class BlogPostComponent implements OnInit, OnDestroy {
   articleId: string = '';
-  article: any;
+  article: Article | null = null;
   private subscription: Subscription | null = null;
 
   private route = inject(ActivatedRoute);
@@ -26,7 +27,14 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     const url = `https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles/${id}`;
     this.subscription = this.http.get<any>(url).subscribe({
       next: (response) => {
-        this.article = response;
+        this.article = {
+          author: response.fields.author.stringValue,
+          category: response.fields.category.stringValue,
+          content: response.fields.content.stringValue,
+          date: response.fields.date.timestampValue,
+          image: response.fields.image.stringValue,
+          title: response.fields.title.stringValue,
+        };
       },
       error: (err) => {
         console.error('Error fetching article:', err);
