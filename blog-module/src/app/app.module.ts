@@ -12,7 +12,6 @@ import { BlogEntryComponent } from './blog-entries/blog-entry/blog-entry.compone
 
 
 import { BlogCategoryResultComponent } from './blog-category-result/blog-category-result.component';
-import { CosaComponent } from './cosa/cosa.component';
 
 //refactor components
 
@@ -34,7 +33,6 @@ import { BlogCategoriesComponent } from './blog-navigation/blog-category-navigat
 
     BlogCategoryResultComponent,
     BlogAddPostComponent,
-    CosaComponent,
 
     // refactor 
     BlogAddButtonComponent,
