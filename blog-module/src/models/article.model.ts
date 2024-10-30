@@ -6,5 +6,6 @@ export interface Article {
     date: string;
     image: string;
     title: string;
+    name?: string;
   }
   

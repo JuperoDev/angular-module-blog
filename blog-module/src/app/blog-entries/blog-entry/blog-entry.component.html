@@ -1,18 +1,22 @@
 <div class="blog-entry" (click)="viewDetails()">
 
-  <h3 class="blog-entry__title">{{ article.fields.title.stringValue }}</h3>
+  <h3 class="blog-entry__title">{{ article.title }}</h3>
+  
   <p class="blog-entry__author">
     <strong class="blog-entry__author-label">Author:</strong>
-    {{ article.fields.author.stringValue }}
+    {{ article.author }}
   </p>
+  
   <p class="blog-entry__category">
     <strong class="blog-entry__category-label">Category:</strong>
-    {{ article.fields.category.stringValue }}
+    {{ article.category }}
   </p>
+  
   <p class="blog-entry__date">
     <strong class="blog-entry__date-label">Date:</strong>
-    {{ article.fields.date.timestampValue | date }}
+    {{ article.date | date }}
   </p>
-  <p class="blog-entry__content">{{ article.fields.content.stringValue | slice: 0:20 }}...</p>
+  
+  <p class="blog-entry__content">{{ article.content | slice: 0:20 }}...</p>
   <!-- short text, ajustar longitud a cortar -->
 </div>
