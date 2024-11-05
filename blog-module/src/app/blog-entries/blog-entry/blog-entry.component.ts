@@ -1,6 +1,6 @@
 import { Component, Input, inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { FirestoreDocument } from '../../../models/article.model';
 
 @Component({
   selector: 'app-blog-entry',
@@ -8,18 +8,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./blog-entry.component.scss']
 })
 export class BlogEntryComponent implements OnDestroy {
-  @Input() article: any;
+  @Input() article!: FirestoreDocument;  
 
   private router = inject(Router);
-  private subscription: Subscription | null = null; 
 
   viewDetails(): void {
-    const articleId = this.article.name.split('/').pop(); 
-    this.router.navigate([articleId]);
+    const articleId = this.article.name.split('/').pop();
+    this.router.navigate([articleId]);  
   }
 
   ngOnDestroy(): void {
-   
-    this.subscription?.unsubscribe();
+  
   }
 }

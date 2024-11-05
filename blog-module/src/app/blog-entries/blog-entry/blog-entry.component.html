@@ -1,5 +1,4 @@
 <div class="blog-entry" (click)="viewDetails()">
-
   <h3 class="blog-entry__title">{{ article.fields.title.stringValue }}</h3>
   <p class="blog-entry__author">
     <strong class="blog-entry__author-label">Author:</strong>
@@ -11,8 +10,9 @@
   </p>
   <p class="blog-entry__date">
     <strong class="blog-entry__date-label">Date:</strong>
-    {{ article.fields.date.timestampValue | date }}
+    {{ article.fields.date.timestampValue | date:'mediumDate' }}
   </p>
-  <p class="blog-entry__content">{{ article.fields.content.stringValue | slice: 0:20 }}...</p>
-  <!-- short text, ajustar longitud a cortar -->
+  <p class="blog-entry__content">
+    {{ article.fields.content.stringValue | slice: 0:20 }}...
+  </p>
 </div>
