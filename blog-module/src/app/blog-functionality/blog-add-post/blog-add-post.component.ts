@@ -14,7 +14,7 @@ import firebase from 'firebase/compat/app';
 export class BlogAddPostComponent implements OnInit, OnDestroy {
   post = {
     title: '',
-    author: '',
+    author: '',  // This will be set automatically to the logged-in user's name
     category: '',
     content: '',
     date: new Date().toISOString(),
@@ -32,6 +32,9 @@ export class BlogAddPostComponent implements OnInit, OnDestroy {
     // Subscribe to auth state to determine if the user is logged in
     this.auth.authState.subscribe((user: firebase.User | null) => {
       this.isLoggedIn = !!user;
+      if (this.isLoggedIn && user?.displayName) {
+        this.post.author = user.displayName;  // Automatically set the author's name
+      }
     });
   }
 
@@ -62,7 +65,7 @@ export class BlogAddPostComponent implements OnInit, OnDestroy {
   resetForm() {
     this.post = {
       title: '',
-      author: '',
+      author: this.post.author,  // Keep the author's name after submitting
       category: '',
       content: '',
       date: new Date().toISOString(),

@@ -7,9 +7,10 @@
       <input id="title" [(ngModel)]="post.title" name="title" required>
     </div>
 
-    <div>
+
+    <div *ngIf="post.author">
       <label for="author">Author</label>
-      <input id="author" [(ngModel)]="post.author" name="author" required>
+      <input id="author" [(ngModel)]="post.author" name="author" readonly>
     </div>
 
     <div>
@@ -27,9 +28,16 @@
       <input id="date" type="datetime-local" [(ngModel)]="post.date" name="date" required>
     </div>
 
+  
+    <div>
+      <label for="image">Image URL</label>
+      <input id="image" [(ngModel)]="post.image" name="image">
+    </div>
+
     <button type="submit" [disabled]="postForm.invalid">Submit Post</button>
   </form>
 </div>
+
 
 <ng-template #loginMessage>
   <p>You must log in to write a post.</p>
