@@ -21,8 +21,18 @@ import { BlogDeleteButtonComponent } from './blog-functionality/blog-delete-butt
 import { BlogAddPostComponent } from './blog-functionality/blog-add-post/blog-add-post.component';
 
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { environment } from '../environments/environment';
 
 import { BlogCategoriesComponent } from './blog-navigation/blog-category-navigator/blog-categories.component';
+import { UserContentComponent } from './user-content/user-content.component';
+
+
+// firebase 
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -39,12 +49,15 @@ import { BlogCategoriesComponent } from './blog-navigation/blog-category-navigat
     BlogDeleteButtonComponent,
     BlogPostComponent,
     BlogCategoriesComponent,
+    UserContentComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule  ,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

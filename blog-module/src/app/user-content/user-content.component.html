@@ -1,0 +1,10 @@
+<!-- user-content.component.html -->
+<div *ngIf="user; else signInTemplate">
+    <p>Welcome, {{ user.displayName }}</p>
+    <button (click)="signOut()">Sign Out</button>
+  </div>
+  
+  <ng-template #signInTemplate>
+    <button (click)="signInWithGoogle()">Sign in with Google</button>
+  </ng-template>
+  
