@@ -1,14 +1,17 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+// blog-add-post.component.ts
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-blog-add-post',
   templateUrl: './blog-add-post.component.html',
   styleUrls: ['./blog-add-post.component.scss']
 })
-export class BlogAddPostComponent implements OnDestroy {
+export class BlogAddPostComponent implements OnInit, OnDestroy {
   post = {
     title: '',
     author: '',
@@ -17,11 +20,20 @@ export class BlogAddPostComponent implements OnDestroy {
     date: new Date().toISOString(),
     image: ''
   };
+  isLoggedIn = false;
 
   private readonly baseUrl = 'https://firestore.googleapis.com/v1/projects/blog-a2581/databases/(default)/documents/articles';
   private http = inject(HttpClient);
   private router = inject(Router);
+  private auth = inject(AngularFireAuth);
   private subscription: Subscription | null = null;
+
+  ngOnInit(): void {
+    // Subscribe to auth state to determine if the user is logged in
+    this.auth.authState.subscribe((user: firebase.User | null) => {
+      this.isLoggedIn = !!user;
+    });
+  }
 
   submitPost() {
     const body = {

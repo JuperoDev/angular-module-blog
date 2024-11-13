@@ -1,35 +1,36 @@
-<h2>Add New Post</h2>
-blog-add-post
-<form (ngSubmit)="submitPost()" #postForm="ngForm">
-  <div>
-    <label for="title">Title</label>
-    <input id="title" [(ngModel)]="post.title" name="title" required>
-  </div>
+<!-- blog-add-post.component.html -->
+<div *ngIf="isLoggedIn; else loginMessage">
+  <h2>Add New Post</h2>
+  <form (ngSubmit)="submitPost()" #postForm="ngForm">
+    <div>
+      <label for="title">Title</label>
+      <input id="title" [(ngModel)]="post.title" name="title" required>
+    </div>
 
-  <div>
-    <label for="author">Author</label>
-    <input id="author" [(ngModel)]="post.author" name="author" required>
-  </div>
+    <div>
+      <label for="author">Author</label>
+      <input id="author" [(ngModel)]="post.author" name="author" required>
+    </div>
 
-  <div>
-    <label for="category">Category</label>
-    <input id="category" [(ngModel)]="post.category" name="category" required>
-  </div>
+    <div>
+      <label for="category">Category</label>
+      <input id="category" [(ngModel)]="post.category" name="category" required>
+    </div>
 
-  <div>
-    <label for="content">Content</label>
-    <textarea id="content" [(ngModel)]="post.content" name="content" required></textarea>
-  </div>
+    <div>
+      <label for="content">Content</label>
+      <textarea id="content" [(ngModel)]="post.content" name="content" required></textarea>
+    </div>
 
-  <div>
-    <label for="date">Date</label>
-    <input id="date" type="datetime-local" [(ngModel)]="post.date" name="date" required>
-  </div>
+    <div>
+      <label for="date">Date</label>
+      <input id="date" type="datetime-local" [(ngModel)]="post.date" name="date" required>
+    </div>
 
-  <!-- <div>
-    <label for="image">Image URL</label>
-    <input id="image" [(ngModel)]="post.image" name="image">
-  </div> -->
+    <button type="submit" [disabled]="postForm.invalid">Submit Post</button>
+  </form>
+</div>
 
-  <button type="submit" [disabled]="postForm.invalid">Submit Post</button>
-</form>
+<ng-template #loginMessage>
+  <p>You must log in to write a post.</p>
+</ng-template>

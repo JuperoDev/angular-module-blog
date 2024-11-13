@@ -1,10 +1,7 @@
-
-<div class="blog-add-button__chip--wrap">
-
-  
+<!-- blog-add-button.component.html -->
+<div *ngIf="isLoggedIn" class="blog-add-button__chip--wrap">
   <div class="blog-add-button__chip--element">
-  <a [routerLink]="['add/post']"> Add post </a>
-  <!-- <app-blog-add-post/>  -->
+    <a [routerLink]="['add/post']">Add post</a>
+    <!-- <app-blog-add-post/> -->
   </div>
- 
 </div>
