@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { Article } from '../../models/article.model';
+import { AngularFireAuth } from '@angular/fire/compat/auth'; 
 
 @Component({
   selector: 'app-blog-detail',
@@ -12,15 +13,24 @@ import { Article } from '../../models/article.model';
 export class BlogPostComponent implements OnInit, OnDestroy {
   articleId: string = '';
   article: Article | null = null;
+  loggedInUser: string = ''; 
   private subscription: Subscription | null = null;
 
   private route = inject(ActivatedRoute);
   private http = inject(HttpClient);
   private router = inject(Router);
+  private afAuth = inject(AngularFireAuth); 
 
   ngOnInit(): void {
     this.articleId = this.route.snapshot.paramMap.get('id')!;
     this.fetchArticleDetails(this.articleId);
+
+ 
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.loggedInUser = user.displayName || ''; 
+      }
+    });
   }
 
   fetchArticleDetails(id: string): void {
@@ -43,7 +53,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   }
 
   goBack(): void {
-    this.router.navigate(['']); // home
+    this.router.navigate(['']); // Navigate to home
   }
 
   ngOnDestroy(): void {

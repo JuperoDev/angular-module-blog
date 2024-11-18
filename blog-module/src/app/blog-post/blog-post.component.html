@@ -22,9 +22,12 @@
     <p>{{ article.content }}</p>
   </div>
   
-  <!-- Delete button-->
-  <app-blog-delete-button [postId]="articleId"></app-blog-delete-button>
+  <!-- Delete button -->
+  <app-blog-delete-button 
+    *ngIf="loggedInUser === article?.author" 
+    [postId]="articleId">
+  </app-blog-delete-button>
   
   <!-- Back button -->
   <button class="post__back-button" (click)="goBack()">Back to Home</button>
-</div> 
+</div>
